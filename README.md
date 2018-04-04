@@ -1,3 +1,5 @@
-# SignalR StockTicker Sample
+# SignalR Sample
+- StockTicker SignalR with Xamarin as Client
 
-Reference from https://github.com/aspnet/SignalR-samples/tree/master/StockTickR
+# Reference
+- https://github.com/aspnet/SignalR-samples/tree/master/StockTickR
