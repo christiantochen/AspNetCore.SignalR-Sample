@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="StockTickr.StockTickerView">
+    <ContentPage.Content>
+        <ListView HasUnevenRows="true" ItemsSource="{Binding Stocks}">
+            <ListView.Header>
+                <Grid Padding="8">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                    </Grid.RowDefinitions>
+                    <Label Text="Market State" />
+                    <Label Text="{Binding MarketState}" Grid.Column="1" />
+                    <Button Text="Open Market" Command="{Binding OpenMarketCommand}" Grid.Row="1"/>
+                    <Button Text="Close Market" Command="{Binding CloseMarketCommand}" Grid.Row="1" Grid.Column="1"/>
+                </Grid>
+            </ListView.Header>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" Padding="8">
+                            <Label Text="{Binding Symbol}" />
+                            <Label Text="{Binding DayOpen}"/>
+                            <Label Text="{Binding DayLow}"/>
+                            <Label Text="{Binding DayHigh}"/>
+                            <Label Text="{Binding LastChange}"/>
+                            <Label Text="{Binding Change}"/>
+                            <Label Text="{Binding PercentChange}"/>
+                            <Label Text="{Binding Price}"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>
