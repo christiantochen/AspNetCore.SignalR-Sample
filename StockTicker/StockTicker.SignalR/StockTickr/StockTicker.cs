@@ -85,9 +85,7 @@ namespace StockTickr
                 if (MarketState == MarketState.Open)
                 {
                     if (_timer != null)
-                    {
                         _timer.Dispose();
-                    }
 
                     MarketState = MarketState.Closed;
 
@@ -106,9 +104,7 @@ namespace StockTickr
             try
             {
                 if (MarketState != MarketState.Closed)
-                {
                     throw new InvalidOperationException("Market must be closed before it can be reset.");
-                }
 
                 LoadDefaultStocks();
                 await BroadcastMarketReset();
@@ -144,9 +140,7 @@ namespace StockTickr
                     _updatingStockPrices = true;
 
                     foreach (var stock in _stocks.Values)
-                    {
                         TryUpdateStockPrice(stock);
-                    }
 
                     _updatingStockPrices = false;
                 }
@@ -162,9 +156,7 @@ namespace StockTickr
             // Randomly choose whether to udpate this stock or not
             var r = _updateOrNotRandom.NextDouble();
             if (r > 0.1)
-            {
                 return false;
-            }
 
             // Update the stock price by a random factor of the range percent
             var random = new Random((int)Math.Floor(stock.Price));
@@ -186,8 +178,6 @@ namespace StockTickr
                     break;
                 case MarketState.Closed:
                     await Hub.Clients.All.SendAsync("marketClosed");
-                    break;
-                default:
                     break;
             }
         }

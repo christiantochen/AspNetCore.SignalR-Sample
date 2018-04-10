@@ -18,10 +18,7 @@ namespace StockTickr
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddCors();
-            services.AddSignalR((hubOptions) =>
-            {
-                //hubOptions.
-            });
+            services.AddSignalR();
 
             services.AddScoped<StockTickerHub>();
             services.AddSingleton<StockTicker>();

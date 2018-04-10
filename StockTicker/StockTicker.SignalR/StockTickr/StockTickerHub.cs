@@ -14,39 +14,16 @@ namespace StockTickr
             _stockTicker = stockTicker;
         }
 
-        public IEnumerable<Stock> GetAllStocks()
-        {
-            return _stockTicker.GetAllStocks();
-        }
+        public IEnumerable<Stock> GetAllStocks() => _stockTicker.GetAllStocks();
 
-        public IObservable<IEnumerable<Stock>> StreamStocks()
-        {
-            return _stockTicker.StreamStocks();
-        }
+        public IObservable<IEnumerable<Stock>> StreamStocks() => _stockTicker.StreamStocks();
 
-        public string GetMarketState()
-        {
-            return _stockTicker.MarketState.ToString();
-        }
+        public string GetMarketState() => _stockTicker.MarketState.ToString();
 
-        public async Task OpenMarket()
-        {
-            await _stockTicker.OpenMarket();
-        }
+        public async Task OpenMarket() => await _stockTicker.OpenMarket();
 
-        public async Task CloseMarket()
-        {
-            await _stockTicker.CloseMarket();
-        }
+        public async Task CloseMarket() => await _stockTicker.CloseMarket();
 
-        public async Task Reset()
-        {
-            await _stockTicker.Reset();
-        }
-
-        public override Task OnConnectedAsync()
-        {
-            return base.OnConnectedAsync();
-        }
+        public async Task Reset() => await _stockTicker.Reset();
     }
 }
